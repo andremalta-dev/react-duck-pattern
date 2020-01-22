@@ -14,15 +14,17 @@ const BookPage = () => {
   return (
     <>
       <h1> Cadastro de Livros</h1>
-      {books.map(book => (
-        <BookCard
-          key={book.id}
-          name={book.name}
-          author={book.author}
-          abstract={book.abstract}
-          onDelete={() => handleDeleteBook(book)}
-        />
-      ))}
+      {books && books.length > 0
+        ? books.map(book => (
+            <BookCard
+              key={book.id}
+              name={book.name}
+              author={book.author}
+              abstract={book.abstract}
+              onDelete={() => handleDeleteBook(book)}
+            />
+          ))
+        : 'No books registered.'}
     </>
   )
 }
